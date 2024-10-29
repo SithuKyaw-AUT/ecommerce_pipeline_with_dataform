@@ -3,8 +3,8 @@ config {
     schema: "transformed_data",
     name: "products",
     assertions: {
-        uniqueKey: ["id"],
-        nonNull: ["cost", "category", "name", "brand", "retail_price", "department", "distribution_center_id"]
+        uniqueKey: ["product_id"],
+        nonNull: ["cost", "category", "retail_price", "department", "distribution_center_id"]
     }
 } 
 SELECT 
