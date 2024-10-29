@@ -1,4 +1,4 @@
-config{
+config {
     type: "table",
     schema: "source_data",
     name: "inventory_items"
