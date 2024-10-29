@@ -4,7 +4,7 @@ config {
     name: "order_items",
     assertions: {
         uniqueKey: ["id"],
-        nonNull: ["order_id", "user_id", "product_id", "inventory_item_id", "status", "created_at", "sale_price"]
+        nonNull: ["order_id", "user_id", "product_id", "inventory_item_id", "status", "order_date", "sale_price"]
     }
 } 
 SELECT 
