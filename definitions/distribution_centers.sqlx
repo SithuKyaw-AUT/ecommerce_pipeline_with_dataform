@@ -1,0 +1,6 @@
+config{
+    type: "table",
+    schema: "source_data", 
+    name: "distribution_centers"
+}
+SELECT * FROM `source_data.distribution_centers`

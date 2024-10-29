@@ -1,0 +1,6 @@
+config{
+    type: "table",
+    schema: "source_data",
+    name: "inventory_items"
+}
+SELECT * FROM `source_data.inventory_items`
