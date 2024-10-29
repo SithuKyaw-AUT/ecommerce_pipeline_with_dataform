@@ -1,6 +1,15 @@
 config {
     type: "table",
-    schema: "source_data", 
-    name: "distribution_centers"
+    schema: "transformed_data", 
+    name: "distribution_centers",
+    assertions: {
+        uniqueKey: ["id"],
+        nonNull: ["name", "latitude", "longitude"]
+    }
 }
-SELECT * FROM `source_data.distribution_centers`
+SELECT 
+    id,
+    name,
+    latitude,
+    longitude
+FROM `source_data.distribution_centers`

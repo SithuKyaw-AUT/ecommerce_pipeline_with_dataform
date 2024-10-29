@@ -1,6 +1,24 @@
 config {
     type: "table",
-    schema: "source_data",
-    name: "users"
-} 
-SELECT * FROM `source_data.users`
+    schema: "transformed_data",  
+    name: "users", 
+    assertions: { 
+        uniqueKey: ["id"],  
+        nonNull: ["first_name", "country", "created_at"],  
+        rowConditions: [
+            'age < 100',  
+            'gender IN ("M", "F")'
+        ]
+    }
+}
+
+SELECT 
+    id as user_id,
+    first_name,
+    email,
+    age,
+    gender,
+    country,
+    Date(created_at) as signup_date
+FROM 
+    `source_data.users`

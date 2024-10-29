@@ -1,6 +1,22 @@
 config {
     type: "table",
-    schema: "source_data",
-    name: "inventory_items"
+    schema: "transformed_data",
+    name: "inventory_items",
+    assertions: {
+        uniqueKey: ["id"],
+        nonNull: ["product_id", "created_at", "cost", "product_category", "product_name", "product_brand", "product_retail_price", "product_department", "product_distribution_center_id"]
+    }
 }
-SELECT * FROM `source_data.inventory_items`
+SELECT 
+    id,
+    product_id,
+    Date(created_at) as purchased_date,
+    Date(sold_at) as sold_date,
+    cost,
+    product_category, 
+    product_name,
+    product_brand,
+    product_retail_price,
+    product_department,
+    product_distribution_center_id
+FROM `source_data.inventory_items`

@@ -1,6 +1,22 @@
 config {
     type: "table",
-    schema: "source_data",
-    name: "order_items"
+    schema: "transformed_data",
+    name: "order_items",
+    assertions: {
+        uniqueKey: ["id"],
+        nonNull: ["order_id", "user_id", "product_id", "inventory_item_id", "status", "created_at", "sale_price"]
+    }
 } 
-SELECT * FROM `source_data.order_items`
+SELECT 
+    id,
+    order_id,
+    user_id,
+    product_id,
+    inventory_item_id,
+    status,
+    Date(created_at) as order_date,
+    Date(returned_at) as returned_date,
+    Date(shipped_at) as shipped_date,
+    Date(delivered_at) as delivered_date,
+    sale_price
+FROM `source_data.order_items`
