@@ -1,0 +1,33 @@
+config {
+    type: "view",
+    schema: "transformed_data",
+    name: "total_quantity_sold"
+}
+
+SELECT 
+  EXTRACT(Year from oi.order_date) as Year,
+  EXTRACT(Month from oi.order_date) as Month, 
+  oi.product_id,
+  p.name as product_name, 
+  p.category,
+  p.department,
+  p.distribution_center_id,
+  d.name as distribution_center_name,
+  d.latitude,
+  d.longitude,
+  SUM(o.num_of_item) as TotalQuantitySold
+FROM `transformed_data.order_items` oi
+
+JOIN `transformed_data.orders` o
+ON oi.order_id = o.order_id
+
+JOIN `transformed_data.products` p
+ON oi.product_id = p.product_id
+
+JOIN `transformed_data.distribution_centers` d
+ON p.distribution_center_id = d.id
+
+WHERE oi.status = "Complete"
+GROUP BY 1,2,3,4,5,6,7,8, 9, 10
+ORDER BY 1,2,11 desc
+
