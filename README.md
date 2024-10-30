@@ -39,6 +39,9 @@ The transformed tables and views are exported to BigQuery so they are accessible
 6. Dashboard Creation in Looker Studio
 The E-commence dashboard is created in Looker Studio.
 
+# E-commence Dashboard
+![E-commence dashboard](https://github.com/SithuKyaw-AUT/ecommence_pipeline_with_dataform/blob/main/dashboard.png)
+
 # Future Enhancements
 To expand on this project, consider implementing the following features:
 - Automated ETL Pipelines: Integrate the queries into an ETL tool to automate data extraction, transformation, and loading.
