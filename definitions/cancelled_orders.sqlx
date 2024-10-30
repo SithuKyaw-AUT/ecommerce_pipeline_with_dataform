@@ -1,0 +1,17 @@
+config {
+    type: "view",
+    schema: "transformed_data",
+    name: "cancelled_orders"
+}
+
+SELECT 
+  EXTRACT(Year from oi.order_date) as Year,
+  EXTRACT(Month from oi.order_date) as Month, 
+  COUNT(DISTINCT o.order_id) as TotalCancelledOrder,
+  ROUND(SUM(oi.sale_price),2) as TotalRevenue
+FROM `transformed_data.order_items` oi
+JOIN `transformed_data.orders` o
+ON oi.order_id = o.order_id
+WHERE oi.status = "Cancelled"
+GROUP BY 1,2
+ORDER BY 1,2
