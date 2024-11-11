@@ -1,4 +1,4 @@
-# E-commence Data Pipeline using Dataform
+# E-commerce Data Pipeline using Dataform
 This project is an analytical data pipeline for a fictional e-commerce database. It includes SQL queries for generating key business insights such as total orders, revenue, inventory, and customer information. This project could serve as a foundational data engineering or data analytics project for e-commerce platforms.
 
 # Project Overview
